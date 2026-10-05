@@ -46,6 +46,17 @@ jobs:
             tail -n 300 build.log || true
           } > error.txt
 
+      - name: Annotate build errors
+        if: failure()
+        run: |
+          python3 - <<'PYEOF'
+          lines = open("error.txt", encoding="utf-8", errors="replace").read().splitlines()
+          chunks = [lines[i:i + 120] for i in range(0, min(len(lines), 600), 120)]
+          for index, chunk in enumerate(chunks):
+              message = "%0A".join(line.replace("%", "%25").replace("\r", "") for line in chunk)
+              print("::error title=Build error part %d::%s" % (index + 1, message))
+          PYEOF
+
       - name: Upload error report
         if: failure()
         uses: actions/upload-artifact@v4
