@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.nxteam.nxaccountswitcher.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MinecraftClientAccessor",
+    "ScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
