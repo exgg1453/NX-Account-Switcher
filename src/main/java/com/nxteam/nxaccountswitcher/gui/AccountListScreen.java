@@ -11,7 +11,6 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import org.lwjgl.input.Mouse;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -235,7 +234,7 @@ public class AccountListScreen extends Screen {
     }
 
     @Override
-    protected void mouseClicked(int mouseX, int mouseY, int button) throws IOException {
+    protected void mouseClicked(int mouseX, int mouseY, int button) {
         super.mouseClicked(mouseX, mouseY, button);
         if (button != 0 || busy) {
             return;
@@ -264,7 +263,7 @@ public class AccountListScreen extends Screen {
     }
 
     @Override
-    public void handleMouse() throws IOException {
+    public void handleMouse() {
         super.handleMouse();
         int wheel = Mouse.getEventDWheel();
         if (wheel != 0) {
@@ -274,7 +273,7 @@ public class AccountListScreen extends Screen {
     }
 
     @Override
-    protected void keyPressed(char character, int keyCode) throws IOException {
+    protected void keyPressed(char character, int keyCode) {
         if (keyCode == 1) {
             this.client.setScreen(parent);
             return;

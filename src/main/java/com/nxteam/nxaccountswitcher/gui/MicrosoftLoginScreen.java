@@ -13,7 +13,6 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import org.lwjgl.opengl.GL11;
 
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MicrosoftLoginScreen extends Screen {
@@ -164,7 +163,7 @@ public class MicrosoftLoginScreen extends Screen {
     }
 
     @Override
-    protected void keyPressed(char character, int keyCode) throws IOException {
+    protected void keyPressed(char character, int keyCode) {
         if (keyCode == 1) {
             close();
         }

@@ -9,7 +9,6 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import org.lwjgl.input.Keyboard;
 
-import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class OfflineAccountScreen extends Screen {
@@ -84,7 +83,7 @@ public class OfflineAccountScreen extends Screen {
     }
 
     @Override
-    protected void keyPressed(char character, int keyCode) throws IOException {
+    protected void keyPressed(char character, int keyCode) {
         if (keyCode == 1) {
             this.client.setScreen(parent);
             return;
@@ -101,7 +100,7 @@ public class OfflineAccountScreen extends Screen {
     }
 
     @Override
-    protected void mouseClicked(int mouseX, int mouseY, int button) throws IOException {
+    protected void mouseClicked(int mouseX, int mouseY, int button) {
         super.mouseClicked(mouseX, mouseY, button);
         usernameField.method_920(mouseX, mouseY, button);
     }
